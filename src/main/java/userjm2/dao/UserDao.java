@@ -1,10 +1,14 @@
 package userjm2.dao;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import javax.swing.border.EtchedBorder;
+
+import com.mysql.cj.Query;
 
 import userjm2.dto.User;
 
@@ -80,6 +84,40 @@ public class UserDao {
 		
 		
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	public void findUserByName(String name) {
+		EntityManagerFactory entityManagerFactory=Persistence.createEntityManagerFactory("vinod");
+		EntityManager entityManager=entityManagerFactory.createEntityManager();
+		javax.persistence.Query query=entityManager.createQuery("Select u from User u where u.name=?1");
+		query.setParameter(1, name);
+		User  user=(User) query.getSingleResult();
+		System.out.println(user);
+	}
+	
+	
+	
+	
+	public  void findAllUser() {
+		EntityManagerFactory entityManagerFactory=Persistence.createEntityManagerFactory("vinod");
+		EntityManager entityManager=entityManagerFactory.createEntityManager();
+		javax.persistence.Query query=entityManager.createQuery("Select u from User u");
+		List<User> users=query.getResultList();
+	System.out.println(users);
+		
+		
+		
+	}
+	
+	
+	
 	
 	
 	

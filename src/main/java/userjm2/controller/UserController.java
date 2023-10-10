@@ -20,12 +20,13 @@ public static void main(String[] args) {
 //	dao.selectUser(100);
 //	deleteUser
 //	dao.deleteUser(100);
-	
-	User user=new User();
-	
-	user.setName("Charan");
-	user.setAddress("Odissaa");
-	dao.updateUser(10, user);
-	
+//	
+//	User user=new User();
+//	
+//	user.setName("Charan");
+//	user.setAddress("Odissaa");
+//	dao.updateUser(10, user);
+//	dao.findUserByName("pooji");
+	dao.findAllUser();
 }
 }
