@@ -19,7 +19,13 @@ public static void main(String[] args) {
 	UserDao dao=new UserDao();
 //	dao.selectUser(100);
 //	deleteUser
-	dao.deleteUser(100);
+//	dao.deleteUser(100);
+	
+	User user=new User();
+	
+	user.setName("Charan");
+	user.setAddress("Odissaa");
+	dao.updateUser(10, user);
 	
 }
 }

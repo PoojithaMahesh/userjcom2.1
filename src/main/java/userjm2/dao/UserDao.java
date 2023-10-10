@@ -50,7 +50,36 @@ public class UserDao {
 		}
 	}
 	
-	
+	public void updateUser(int id,User user) {
+//		id=10
+//		user=1000 charan odissa
+		EntityManagerFactory entityManagerFactory=Persistence.createEntityManagerFactory("vinod");
+		EntityManager entityManager=entityManagerFactory.createEntityManager();
+		User dbUser=entityManager.find(User.class, 10);
+//		dbUser=10,Odissa,Charan
+		if(dbUser!=null) {
+//		id is present
+//			merge update the data or insert the data
+			EntityTransaction entityTransaction=entityManager.getTransaction();
+			entityTransaction.begin();
+//			user=1000 charan odissa
+			user.setId(id);
+//			user=10 charan odissa
+			entityManager.merge(user);
+			entityTransaction.commit();	
+		}else {
+//		id is not present
+//			i know that if we are using merge method here it will insert the data
+//			inside this else block im not going to use merge method
+			System.out.println("id is not present to update");
+		}
+		
+		
+		
+		
+		
+		
+	}
 	
 	
 	
